@@ -1,0 +1,65 @@
+syntax = "proto3";
+package services;
+option go_package = "../;proto";
+
+message UpdateFollowingCount_request {
+  int64 user_id = 1; // 用户id
+  int32 count = 2;// 增加的数量
+  int32 type = 3;// 1是增加，2是减少
+}
+
+message UpdateFollowingCount_response {
+  int32 status_code = 1; //响应，成功是0，失败是其他值
+}
+
+message UpdateFollowerCount_request {
+  int64 user_id = 1; // 用户id
+  int32 count = 2;// 增加的数量
+  int32 type = 3;// 1是增加，2是减少
+}
+
+message UpdateFollowerCount_response {
+  int32 status_code = 1; //响应，成功是0，失败是其他值
+}
+
+message GetUsersByIds_request {
+  repeated int64 user_id = 1; // 用户id集合
+  string token = 2 ;
+}
+
+message GetUsersByIds_response {
+  int32 status_code = 1;//响应，成功是0，失败是其他值
+  repeated User UserList = 2; //用户集合
+}
+
+
+message User {
+  // @gotags: json:"id"
+  int64 Id = 1; // 用户id
+  // @gotags: json:"name"
+  string Name = 2; // 用户名称
+  // @gotags: json:"follow_count"
+  int64 FollowCount = 3; // 关注总数
+  // @gotags: json:"follower_count"
+  int64 FollowerCount = 4; // 粉丝总数
+  // @gotags: json:"is_follow"
+  bool IsFollow = 5; // true-已关注，false-未关注
+  // @gotags: json:"avatar"
+  string Avatar = 6; //用户头像
+  // @gotags: json:"background_image"
+  string BackgroundImage = 7; //用户个人页顶部大图
+  // @gotags: json:"signature"
+  string Signature = 8; //个人简介
+  // @gotags: json:"total_favorited"
+  int64 TotalFavorited = 9; //获赞数量
+  // @gotags: json:"work_count"
+  int64 WorkCount = 10; //作品数量
+  // @gotags: json:"favorite_count"
+  int64 FavoriteCount = 11; //点赞数量
+}
+
+service ToRelationService{
+  rpc UpdateFollowerCount(UpdateFollowerCount_request) returns (UpdateFollowerCount_response);
+  rpc UpdateFollowingCount(UpdateFollowingCount_request) returns (UpdateFollowingCount_response);
+  rpc GetUsersByIds(GetUsersByIds_request) returns (GetUsersByIds_response);
+}
