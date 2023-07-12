@@ -12,7 +12,7 @@
 
 ---
 ### 运行
-1. `git clone https://github.com/anapple929/simple-douyin`
+1. `git clone https://github.com/yuanjunfang/simple-douyin`
 2. 进入每个微服务`go mod tidy`，
 3. 将 `etcd` 运行起来
 4. 运行每个微服务的`main.go`
