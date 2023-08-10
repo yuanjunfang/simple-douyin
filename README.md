@@ -4,7 +4,7 @@
 
 
 
-**开发接口文档：** https://bytedance.feishu.cn/docs/doccnKrCsU5Iac6eftnFBdsXTof#6QCRJV
+**开发接口文档：** [https://bytedance.feishu.cn/docs/doccnKrCsU5Iac6eftnFBdsXTof#6QCRJV](https://as7knk7202.feishu.cn/docx/Qa3Ndu8mBoWntHxPCVecw81wndb)
 
 
 
